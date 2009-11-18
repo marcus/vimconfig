@@ -1,0 +1,1 @@
+/Users/kihaadmin/.vim/syntax/javascript.vim
