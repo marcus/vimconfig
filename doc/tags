@@ -118,6 +118,7 @@ c_<Plug>(fakeclip-screen-insert)	fakeclip.txt	/*c_<Plug>(fakeclip-screen-insert)
 c_<Plug>(fakeclip-screen-insert-o)	fakeclip.txt	/*c_<Plug>(fakeclip-screen-insert-o)*
 c_<Plug>(fakeclip-screen-insert-r)	fakeclip.txt	/*c_<Plug>(fakeclip-screen-insert-r)*
 command-snippets	snipMate.txt	/*command-snippets*
+cs	surround.txt	/*cs*
 delimitMate	delimitMate.txt	/*delimitMate*
 delimitMate-contents	delimitMate.txt	/*delimitMate-contents*
 delimitMate.txt	delimitMate.txt	/*delimitMate.txt*
@@ -135,6 +136,7 @@ delimitMateOptionSummary	delimitMate.txt	/*delimitMateOptionSummary*
 delimitMateOptions	delimitMate.txt	/*delimitMateOptions*
 delimitMateTodo	delimitMate.txt	/*delimitMateTodo*
 delimitMateVisualWrapping	delimitMate.txt	/*delimitMateVisualWrapping*
+ds	surround.txt	/*ds*
 fakeclip	fakeclip.txt	/*fakeclip*
 fakeclip-bugs	fakeclip.txt	/*fakeclip-bugs*
 fakeclip-changelog	fakeclip.txt	/*fakeclip-changelog*
@@ -271,6 +273,8 @@ i_<Plug>(fakeclip-screen-insert)	fakeclip.txt	/*i_<Plug>(fakeclip-screen-insert)
 i_<Plug>(fakeclip-screen-insert-o)	fakeclip.txt	/*i_<Plug>(fakeclip-screen-insert-o)*
 i_<Plug>(fakeclip-screen-insert-p)	fakeclip.txt	/*i_<Plug>(fakeclip-screen-insert-p)*
 i_<Plug>(fakeclip-screen-insert-r)	fakeclip.txt	/*i_<Plug>(fakeclip-screen-insert-r)*
+i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
+i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 multi_snip	snipMate.txt	/*multi_snip*
 project	project.txt	/*project*
 project-adding-mappings	project.txt	/*project-adding-mappings*
@@ -306,6 +310,14 @@ snipMate.txt	snipMate.txt	/*snipMate.txt*
 snippet	snipMate.txt	/*snippet*
 snippet_filetype	snipMate.txt	/*snippet_filetype*
 snippets	snipMate.txt	/*snippets*
+surround	surround.txt	/*surround*
+surround-author	surround.txt	/*surround-author*
+surround-customizing	surround.txt	/*surround-customizing*
+surround-issues	surround.txt	/*surround-issues*
+surround-mappings	surround.txt	/*surround-mappings*
+surround-replacements	surround.txt	/*surround-replacements*
+surround-targets	surround.txt	/*surround-targets*
+surround.txt	surround.txt	/*surround.txt*
 taglist-commands	taglist.txt	/*taglist-commands*
 taglist-debug	taglist.txt	/*taglist-debug*
 taglist-extend	taglist.txt	/*taglist-extend*
@@ -327,3 +339,8 @@ v_<Plug>(fakeclip-Y)	fakeclip.txt	/*v_<Plug>(fakeclip-Y)*
 v_<Plug>(fakeclip-screen-Y)	fakeclip.txt	/*v_<Plug>(fakeclip-screen-Y)*
 v_<Plug>(fakeclip-screen-y)	fakeclip.txt	/*v_<Plug>(fakeclip-screen-y)*
 v_<Plug>(fakeclip-y)	fakeclip.txt	/*v_<Plug>(fakeclip-y)*
+vs	surround.txt	/*vs*
+yS	surround.txt	/*yS*
+ySS	surround.txt	/*ySS*
+ys	surround.txt	/*ys*
+yss	surround.txt	/*yss*

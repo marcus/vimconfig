@@ -61,5 +61,5 @@ set pastetoggle=<F2>
 au BufNewFile,BufRead *.js,.javascript,.es setf js
 let tlist_js_settings = 'js;f:function'
 
-set runtimepath=~/.vim/vimclojure,$VIMRUNTIME
+set runtimepath=~/.vim,~/.vim/vimclojure,$VIMRUNTIME
 "au BufNewFile,BufRead *.ejs let b:swill = "html" | set ft=swill
