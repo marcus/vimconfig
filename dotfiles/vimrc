@@ -1,3 +1,4 @@
+set runtimepath=~/.vim,~/.vim/vimclojure,$VIMRUNTIME
 source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
@@ -13,6 +14,10 @@ set smarttab
 
 set wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
+
+set nu
+
+:colorscheme candycode
 
 :filetype on
 :filetype plugin on
@@ -61,7 +66,6 @@ set pastetoggle=<F2>
 au BufNewFile,BufRead *.js,.javascript,.es setf js
 let tlist_js_settings = 'js;f:function'
 
-set runtimepath=~/.vim,~/.vim/vimclojure,$VIMRUNTIME
 "au BufNewFile,BufRead *.ejs let b:swill = "html" | set ft=swill
 
 func GitGrep(...)
