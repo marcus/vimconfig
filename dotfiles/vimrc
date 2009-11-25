@@ -1,4 +1,4 @@
-set runtimepath=~/.vim,~/.vim/vimclojure,$VIMRUNTIME
+set runtimepath=~/.vim,~/.vim/vimclojure,~/.vim/vim-fugitive,$VIMRUNTIME
 source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
