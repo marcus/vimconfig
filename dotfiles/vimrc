@@ -1,4 +1,4 @@
-set runtimepath=~/.vim,~/.vim/vimclojure,~/.vim/vim-fugitive,$VIMRUNTIME
+set runtimepath=~/.vim,~/.vim/vimclojure,~/.vim/vim-fugitivee,$VIMRUNTIME
 source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
@@ -68,15 +68,7 @@ let tlist_js_settings = 'js;f:function'
 
 "au BufNewFile,BufRead *.ejs let b:swill = "html" | set ft=swill
 
-func GitGrep(...)
-  let save = &grepprg
-  set grepprg=git\ grep\ -n\ $*
-  let s = 'grep'
-  for i in a:000
-    let s = s . ' ' . i
-  endfor
-  exe s
-  let &grepprg = save
-endfun
-command -nargs=? G call GitGrep(<f-args>)
-
+map <C-t><up> :tabnew<cr>
+map <C-t><down> :tabclose<cr>
+map <C-t><left> :tabprevious<cr>
+map <C-t><right> :tabnext<cr>
