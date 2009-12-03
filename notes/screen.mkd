@@ -1,0 +1,8 @@
+*Common Tasks*
+ctrl+* ctrl-\       Kill all screen windows
+ctrl+* ctrl-k       Kill current window
+
+
+
+*Links*
+http://www.gnu.org/software/screen/manual/screen.html
