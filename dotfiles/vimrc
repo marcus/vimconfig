@@ -12,6 +12,7 @@ set smartindent
 set expandtab
 set smarttab
 
+set nowrap
 set wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
 
@@ -24,6 +25,11 @@ set nu
 :filetype indent on
 
 :syntax on
+
+" Markdown
+augroup mkd
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+augroup END
 
 " For python, modify for Ruby
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -51,7 +57,7 @@ imap <C-a> <Home>
 omap <C-a> <Home>
 imap <C-e> <End>
 omap <C-e> <End>
-inoremap <C-d> <Del>
+" inoremap <C-d> <Del>
 inoremap <silent> <C-k> <C-r>=<SID>KillLine()<CR>
 
 vmap <C-x> ylpr
