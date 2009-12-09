@@ -3,6 +3,17 @@ ctrl+* ctrl-\       Kill all screen windows
 ctrl+* ctrl-k       Kill current window
 
 
-
 *Links*
 http://www.gnu.org/software/screen/manual/screen.html
+
+* Multiuser *
+-- Set UID root on screen - must be done as root
+# chmod u+s /usr/bin/screen
+
+-- As user, begin screen session and turn on multiuser
+$ screen
+$ [control-a] :multiuser on
+$ [control-a] :acladd username-to-allow
+
+-- Second user executes:
+$ screen -x yourusername/
