@@ -29,7 +29,7 @@ zl / zh                     scroll left/right
 z<CR> / zt  / zz or z.      scroll to position cursor at top / center
 
 *Marks*
-ma               create mark "a", '/` <mark>  go to beginning of marked line/go to mark
+ma               create mark "a", '/` <mark>  go to beginning of marked line/go to mark `
 :marks           list marks
 
 *Searching*
@@ -41,52 +41,52 @@ f,t                     find a char on the same line
 :%s/search/replace/gc   Global search and replace with prompt
 %                       Navigates to matching brace
 
-Selecting
+*Selecting*
 v/V/ctrl+v          visual per char/per line/block
 ggVG                select all (top, Visual bottom)
 I                   when in block mode, press I, type then esc and changes are applied to all lines
 
-Alter selected text
-~/d/c/y/>/<         case/delete/change/yank/shift left/shift right
+*Alter selected text*
+~/d/c/y/>/<         case/delete/change/yank/shift left/shift right      >
 
-Copy/Paste
+*Copy/Paste*
 p / P             put the yanked text before cursor / after the cursor
 yy / yw / y$      yank line / yank word / yank to end of line
 
 
-Undo/Redo
+*Undo/Redo*
 u                                       undo
 ctrl + r                                redo
 :undolist                               show previous states
 :earlier 20s / 1m / 2h                  go back in time
 :later                                  amazingly, go forward in time
 
-Folding
+*Folding*
 zo/zO/zc/zC                         Open a fold/open all/close fold/close all
 zM/zR                               Close all folds/Open all folds
 
-Open/Close vim
+*Open/Close vim*
 :stop/ctrl-z                         stop/suspend vim  
 fg                                   resume stopped session
 vim -o file1 file2 or vim -o3        open with multiple files/windows
 
-Multiple windows/panes/buffers:
+*Multiple windows/panes/buffers:*
 ctrl-w s/n/v     :split/:new/:vsp      split/open/vertical open a new window
 ctrl-w K/H                             change split to horizontal/vertical
 ctrl-w q/c/o   :quit/:close            quit/close/obscure others
 ctrl-w j/k/w/t/b/p                     above/below/cycle/top/bottom/last
 ctrl-w shift-h/j/k/l                   move an open window  (direction)
 ctrl-w r/R/x                           rotate down/up/exchange with next
-ctrl-w =/-/+/_ /</>                    equal height/decrease/increase/set to height/width increase/decrease
+ctrl-w =/-/+/\_ /</>                    equal height/decrease/increase/set to height/width increase/decrease
 z# enter                               set window to # height
 :wa / :qa /:qa! /:xa                   save all/exit/force exit/exit and save all
 
-Navigating files on the filesystem
+*Navigating files on the filesystem*
 :e <filename>          Open a file
 :e!                    Reopen the current file, getting rid of any unsaved changes.
 :r <filename>          insert text from a file on the filesystem
 
-Working with buffers
+*Working with buffers*
 :buffers/:ls/:files          List open buffers
 :buffer/:b/:bu <name>        Open buffer <name> or <number>
 # ctrl-^                     Open buffer number <#>
@@ -94,13 +94,13 @@ ctrl-^/ ctrl-6 / :b#         Open previous buffer
 ZZ                           Save and close current buffer
 
 
-Running system commands
+*Running system commands*
 :! <command> %(current file)     run a system command optionally with current file as %
 :%!<command>                     Run a shell command on the file without exiting for example, :%!grep --invert-match foo
 :shell / :sh                     Open a shell, exit to go back to vim
 
 
-Mode Switching
+*Mode Switching*
 a/A/i/I       insert after cursor position/end of line/at position/beginning of line
 o/O           create a new line and insert/create a new line above and insert
 s             delete char and insert
@@ -108,29 +108,28 @@ ctrl-c        quit insert mode
 ctrl-o        quit insert mode for the time of one command
 ctrl-o + I, or ctrl-o + 0    quit insert mode, go at beginning of line, and go back to insert modectrl-o + A, or ctrl-o + $    quit insert mode, go at end of line, and go back to insert mode
 
-
-Macros
+*Macros*
 Record: q<some key>, <edit one line and move to the next>, qPlay: @<some key>
 @@ (play last macro)
 100@<some key> (apply macro 100 times)
 
-Tabs
+*Tabs*
 :tabedit %    open current buffer in a new tab
 :tabclose
 :tabnew
 :tabnext
 
-Sessions
+*Sessions*
 :mksession mysession.vim
 :source mysession.vim or start with vim -S mysession.vim
 ctrl-z or :suspend suspends, fg restores
 
-Configuration
+*Configuration*
 :set number(nu)/nonumber(nonu)                   line numbers on/off
 :source ~/.vimrc                                 reload config
 :options                                         set some options within vim
 
-Power editing
+*Power editing*
 ci"               Delete everything inside "" string and start insert moded
 a[                Delete the [] region around your cursor
 vi'               Visual select everything inside '' string
@@ -140,32 +139,33 @@ ctrl-a / ctrl-x   Skip to the next number on the line and increment/decrement it
 gg=G              Indent the entire file. May need :set filetype=<whatever> and then :filetype indent on before this will work.
 :w !sudo tee %    Save as sudo if you forgot to open as sudo
 
-Diff
+*Diff*
 gg=G             Reformat entire file
 
-Plugins
+*Plugins*
 Show installed scripts    :scriptnames
 :verbose set compatible?  check for no compatiblem ode
 
-Surround.vim
+*Surround.vim*
 cs<A><B>          substitue surrounding A for B, use cst for tags
 ds<A>             remove delimiter A
 ysiw<A>           surround text where cursor is with A
 yss<A>            wrap entire line with A
 S<tag>            in VISUAL mode, surround selected with tag
-Color scrolling:
+
+*Color scrolling:*
 :SCROLL
 
-Etc.
+*Etc.*
 :so %              reload vimrc after editing it
 ctrl-g             show position in file (line number, position)
 set -o vi"         in bashrc to use vim as the default editor
 
-Stuff I don't know
+*Stuff I don't know*
 --
 
 
-Useful links:
+*Useful links:*
 http://tnerual.eriogerg.free.fr/vimqrc.html - good one.
 http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
 http://www.dc.turkuamk.fi/docs/soft/vim/vim_win.html - vim with multiple windows
