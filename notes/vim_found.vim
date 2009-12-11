@@ -1,6 +1,5 @@
 Found here: http://rayninfo.co.uk/vimtips.html
 
-__BEGIN__
 ------------------------------------------------------------------------------
 " new items marked *N* , corrected items marked *C*
 " searching
@@ -907,20 +906,6 @@ __END__
 :tabe | :r ! w3m -dump http://zzapper.co.uk/vimtips.html    *N*
 ----------------------------------------
 updated version at http://www.zzapper.co.uk/vimtips.html
-----------------------------------------
-Please email any errors, tips etc to
-david@rayninfo.co.uk
-" Information Sources
-----------------------------------------
-www.vim.org
-Vim Wiki *** VERY GOOD *** *N*
-Vim Use VIM newsgroup *N*
-comp.editors
-groups.yahoo.com/group/vim "VIM" specific newsgroup
-VIM Webring
-Vim Book
-Searchable VIM Doc
-VimTips PDF Version (PRINTABLE!)
 ----------------------------------------
 " : commands to neutralise < for HTML display and publish
 " use yy@" to execute following commands

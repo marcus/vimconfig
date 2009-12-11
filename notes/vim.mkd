@@ -66,7 +66,7 @@ zo/zO/zc/zC                         Open a fold/open all/close fold/close all
 zM/zR                               Close all folds/Open all folds
 
 *Open/Close vim*
-:stop/ctrl-z                         stop/suspend vim  
+:stop/ctrl-z                         stop/suspend vim
 fg                                   resume stopped session
 vim -o file1 file2 or vim -o3        open with multiple files/windows
 
