@@ -85,6 +85,8 @@ z# enter                               set window to # height
 :e <filename>          Open a file
 :e!                    Reopen the current file, getting rid of any unsaved changes.
 :r <filename>          insert text from a file on the filesystem
+gf                     go to file under cursor
+:e#                    edit most recent file
 
 *Working with buffers*
 :buffers/:ls/:files          List open buffers
