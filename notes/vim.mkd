@@ -88,6 +88,20 @@ z# enter                               set window to # height
 gf                     go to file under cursor
 :e#                    edit most recent file
 
+*Repeating*
+.      last edit (magic dot)
+:&     last substitute
+g%     normal mode repeat last substitute
+g&     last substitute on all lines
+@@     last recording
+@:     last command-mode command
+:!!    last :! command
+:~     last substitute
+;      last f, t, F or T
+,      last f, t, F or T in opposite direction
+n      last / or ? search
+N      last / or ? search in opposite direction
+
 *Working with buffers*
 :buffers/:ls/:files          List open buffers
 :buffer/:b/:bu <name>        Open buffer <name> or <number>
