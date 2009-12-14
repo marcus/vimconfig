@@ -140,5 +140,5 @@ noremap <silent> ,mj <C-W>J
 " noremap <silent> <C-F12> :vertical resize +10<CR>
 
 " Highlight all instances of the current word under the cursor
-nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+" nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
 

@@ -1,3 +1,7 @@
+*Creating a remote branch*
+git push origin master:refs/heads/goodreads
+git checkout --track -b goodreads origin/goodreads
+
 *Ignoring A File*
 git rm --cached <file>                                           Remove an already commited file, leave on system
 git filter-branch --index-filter 'git rm --cached <file>' HEAD   Remove a file along with it's history
