@@ -27,6 +27,7 @@ ctrl-e / ctrl-d / ctrl-f    scroll down line (don't move cursor) / 1/2 screen / 
 ctrl-y / ctrl-u / ctrl-b    scroll up line (don't move cursor)/ 1/2 screen / full screen
 zl / zh                     scroll left/right
 z<CR> / zt  / zz or z.      scroll to position cursor at top / center
+f[x]/F[x]                   jump forward to char x, jump back to char x
 
 *Marks*
 ma               create mark "a", '/` <mark>  go to beginning of marked line/go to mark `
