@@ -3,7 +3,11 @@ set runtimepath=~/.vim,~/.vim/vimclojure,~/.vim/vim-fugitivee,~/.vim/vim-rails,$
 " Change swap file directory
 set directory=/tmp
 
+set grepprg=ack
+set grepformat=%f:%l:%c:%m
+
 set nocompatible
+set hidden
 set ts=2
 set sw=2
 set sts=2
@@ -17,6 +21,7 @@ set wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
 
 set nu
+set vb
 
 :colorscheme candycode
 
@@ -25,6 +30,14 @@ set nu
 :filetype indent on
 
 :syntax on
+
+" 'e'dit 'v'imrc)
+nmap <silent> ,ev :e $MYVIMRC<CR>
+" 's'ource 'v'imrc)
+nmap <silent> ,sv :so $MYVIMRC<CR>
+
+" cd to the directory containing the file in the buffer
+nmap ,cd :lcd %:h
 
 " Markdown
 augroup mkd
@@ -60,6 +73,20 @@ omap <C-e> <End>
 " inoremap <C-d> <Del>
 inoremap <silent> <C-k> <C-r>=<SID>KillLine()<CR>
 
+
+" allow command line editing like emacs
+cnoremap <C-A>      <Home>
+cnoremap <C-B>      <Left>
+cnoremap <C-E>      <End>
+cnoremap <C-F>      <Right>
+cnoremap <C-N>      <End>
+cnoremap <C-P>      <Up>
+cnoremap <ESC>b     <S-Left>
+cnoremap <ESC><C-B> <S-Left>
+cnoremap <ESC>f     <S-Right>
+cnoremap <ESC><C-F> <S-Right>
+cnoremap <ESC><C-H> <C-W>
+
 vmap <C-x> ylpr
 
 " Insert a new line with shift-enter in insert mode
@@ -78,3 +105,40 @@ map <C-t><up> :tabnew<cr>
 map <C-t><down> :tabclose<cr>
 map <C-t><left> :tabprevious<cr>
 map <C-t><right> :tabnext<cr>
+
+" Windows
+" Move the cursor to the window left of the current one
+noremap <silent> ,h :wincmd h<cr>
+" Move the cursor to the window below the current one
+noremap <silent> ,j :wincmd j<cr>
+" Move the cursor to the window above the current one
+noremap <silent> ,k :wincmd k<cr>
+" Move the cursor to the window right of the current one
+noremap <silent> ,l :wincmd l<cr>
+" Close the window below this one
+noremap <silent> ,cj :wincmd j<cr>:close<cr>
+" Close the window above this one
+noremap <silent> ,ck :wincmd k<cr>:close<cr>
+" Close the window to the left of this one
+noremap <silent> ,ch :wincmd h<cr>:close<cr>
+" Close the window to the right of this one
+noremap <silent> ,cl :wincmd l<cr>:close<cr>
+" Close the current window
+noremap <silent> ,cc :close<cr>
+" Move the current window to the right of the main Vim window
+noremap <silent> ,ml <C-W>L
+" Move the current window to the top of the main Vim window
+noremap <silent> ,mk <C-W>K
+" Move the current window to the left of the main Vim window
+noremap <silent> ,mh <C-W>H
+" Move the current window to the bottom of the main Vim window
+noremap <silent> ,mj <C-W>J
+" Resizing
+" noremap <silent> <C-F9>  :vertical resize -10<CR>
+" noremap <silent> <C-F10> :resize +10<CR>
+" noremap <silent> <C-F11> :resize -10<CR>
+" noremap <silent> <C-F12> :vertical resize +10<CR>
+
+" Highlight all instances of the current word under the cursor
+" nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+
