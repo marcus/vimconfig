@@ -8,6 +8,8 @@ http://www.androidsnippets.org/snippets/1/
 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
 
-
 *Misc Eclipse Notes*
 Memory settings /Applications/eclipse/Eclipse.app/Contents/MacOS/eclipse.ini
+
+*Time*
+SystemClock.elapsedRealtime();
