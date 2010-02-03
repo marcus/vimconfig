@@ -49,7 +49,7 @@ function! eclim#util#Balloon(message)
   return message
 endfunction " }}}
 
-" DelayedCommand(command [, delay]) {{{
+" DelayedCommand(command, [delay]) {{{
 " Executes a delayed command.  Useful in cases where one would expect an
 " autocommand event (WinEnter, etc) to fire, but doesn't, or you need a
 " command to execute after other autocommands have finished.
@@ -175,7 +175,7 @@ function! eclim#util#FindFileInPath(file, exclude_relative)
   return split(eclim#util#Globpath(path, "**/" . a:file), '\n')
 endfunction " }}}
 
-" Findfile(name, [, path [, count]]) {{{
+" Findfile(name, [path, count]) {{{
 " Used to issue a findfile() handling any vim options that may otherwise
 " disrupt it.
 function! eclim#util#Findfile(name, ...)
@@ -272,16 +272,32 @@ function! eclim#util#GetCurrentElementOffset()
   return offset
 endfunction " }}}
 
-" GetIndent(indent) {{{
-" Gets an indentation string for the supplied number of spaces the indent
-" consists of.  Ex. eclim#util#GetIndent(indent(line('.')))
-function! eclim#util#GetIndent(indent)
+" GetIndent(level) {{{
+" Gets an indentation string for the supplied indentation level.
+function! eclim#util#GetIndent(level)
   let result = ''
 
-  if a:indent
-    let num = a:indent / &sw
-    while num >= 0
-      let result .= g:EclimIndent
+  if a:level
+    if !exists('b:eclim_indent')
+      if exists('g:EclimIndent')
+        let b:eclim_indent = g:EclimIndent
+      else
+        if !&expandtab
+          let b:eclim_indent = "\t"
+        else
+          let b:eclim_indent = ''
+          let index = 0
+          while index < &shiftwidth
+            let b:eclim_indent = b:eclim_indent . " "
+            let index = index + 1
+          endwhile
+        endif
+      endif
+    endif
+
+    let num = a:level
+    while num > 0
+      let result .= b:eclim_indent
       let num -= 1
     endwhile
   endif
@@ -363,9 +379,10 @@ function! eclim#util#GetVisualSelection(line1, line2, default)
     endif
     if mode == "v"
       let start = col("'<") - 1
-      let end = col("'>")
-      let lines[0] = lines[0][start :]
+      let end = col("'>") - 1
+      " slice in end before start in case the selection is only one line
       let lines[-1] = lines[-1][: end]
+      let lines[0] = lines[0][start :]
     elseif mode == "\<c-v>"
       let start = col("'<")
       if col("'>") < start
@@ -451,12 +468,12 @@ function! eclim#util#GoToBufferWindowOrOpen(name, cmd)
   endif
 endfunction " }}}
 
-" GoToBufferWindowRegister(bufname) {{{
+" GoToBufferWindowRegister(buf) {{{
 " Registers the autocmd for returning the user to the supplied buffer when the
 " current buffer is closed.
-function! eclim#util#GoToBufferWindowRegister(bufname)
+function! eclim#util#GoToBufferWindowRegister(buf)
   exec 'autocmd BufWinLeave <buffer> ' .
-    \ 'call eclim#util#GoToBufferWindow("' . escape(a:bufname, '\') . '") | ' .
+    \ 'call eclim#util#GoToBufferWindow("' . escape(a:buf, '\') . '") | ' .
     \ 'doautocmd BufEnter'
 endfunction " }}}
 
@@ -950,7 +967,7 @@ function! eclim#util#Simplify(file)
   return file
 endfunction " }}}
 
-" System(cmd [, exec]) {{{
+" System(cmd, [exec]) {{{
 " Executes system() accounting for possibly disruptive vim options.
 function! eclim#util#System(cmd, ...)
   let saveshell = &shell
@@ -1029,7 +1046,7 @@ function! eclim#util#System(cmd, ...)
   return result
 endfunction " }}}
 
-" TempWindow(name, lines [, readonly]) {{{
+" TempWindow(name, lines, [readonly]) {{{
 " Opens a temp window w/ the given name and contents which is readonly unless
 " specified otherwise.
 function! eclim#util#TempWindow(name, lines, ...)
@@ -1098,10 +1115,10 @@ function! eclim#util#TempWindowClear(name)
   endif
 endfunction " }}}
 
-" TempWindowCommand(command, name) {{{
+" TempWindowCommand(command, name, [port]) {{{
 " Opens a temp window w/ the given name and contents from the result of the
 " supplied command.
-function! eclim#util#TempWindowCommand(command, name)
+function! eclim#util#TempWindowCommand(command, name, ...)
   let name = eclim#util#EscapeBufferName(a:name)
 
   let line = 1
@@ -1113,7 +1130,14 @@ function! eclim#util#TempWindowCommand(command, name)
     let col = col('.')
   endif
 
-  let results = split(eclim#ExecuteEclim(a:command), '\n')
+  if len(a:000) > 0
+    let port = a:000[0]
+    let result = eclim#ExecuteEclim(a:command, port)
+  else
+    let result = eclim#ExecuteEclim(a:command)
+  endif
+
+  let results = split(result, '\n')
   if len(results) == 1 && results[0] == '0'
     return 0
   endif

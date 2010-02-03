@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/ruby/search.html
+"   see http://eclim.org/vim/ruby/search.html
 "
 " License:
 "
@@ -25,7 +25,7 @@
 " Global Varables {{{
   if !exists("g:EclimRubySearchSingleResult")
     " possible values ('split', 'edit', 'lopen')
-    let g:EclimRubySearchSingleResult = "split"
+    let g:EclimRubySearchSingleResult = g:EclimDefaultFileOpenAction
   endif
 " }}}
 

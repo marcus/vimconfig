@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/common/vcs.html
+"   see http://eclim.org/vim/common/vcs.html
 "
 " License:
 "
@@ -188,6 +188,27 @@ function eclim#vcs#util#GetRevisions()
   endtry
 
   return revisions
+endfunction " }}}
+
+" GetModifiedFiles() {{{
+" Gets a list of modified files, including untracked files that are not
+" ignored.
+function eclim#vcs#util#GetModifiedFiles()
+  let files = []
+
+  let cwd = getcwd()
+  let dir = eclim#vcs#util#GetRoot('')
+  exec 'lcd ' . escape(dir, ' ')
+  try
+    let GetModifiedFiles = eclim#vcs#util#GetVcsFunction('GetModifiedFiles')
+    if type(GetModifiedFiles) == 2
+      let files = GetModifiedFiles()
+    endif
+  finally
+    exec 'lcd ' . escape(cwd, ' ')
+  endtry
+
+  return files
 endfunction " }}}
 
 " GetRoot(dir) {{{

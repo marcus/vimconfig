@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/index.html
+"   see http://eclim.org/vim/java/index.html
 "
 " License:
 "
@@ -158,6 +158,9 @@ if !exists(":Javac")
 endif
 if exists(":Java") != 2
   command -buffer -nargs=* Java :call eclim#java#util#Java(<q-args>)
+endif
+if exists(":JavaListInstalls") != 2
+  command -buffer -nargs=* JavaListInstalls :call eclim#java#util#ListInstalls()
 endif
 
 if !exists(":JavaRegex")

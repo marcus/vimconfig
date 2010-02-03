@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/delegate.html
+"   see http://eclim.org/vim/java/delegate.html
 "
 " License:
 "
@@ -55,7 +55,11 @@ endfunction " }}}
 " DelegateWindow(command) {{{
 function! eclim#java#delegate#DelegateWindow(command)
   let name = eclim#java#util#GetFilename() . "_delegate"
-  if eclim#util#TempWindowCommand(a:command, name)
+  let project = eclim#project#util#GetCurrentProjectName()
+  let workspace = eclim#project#util#GetProjectWorkspace(project)
+  let port = eclim#client#nailgun#GetNgPort(workspace)
+
+  if eclim#util#TempWindowCommand(a:command, name, port)
     setlocal ft=java
     call eclim#java#impl#ImplWindowFolding()
 

@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/vim/find.html
+"   see http://eclim.org/vim/vim/find.html
 "
 " License:
 "
@@ -28,7 +28,7 @@ if !exists("g:EclimVimPaths")
 endif
 if !exists("g:EclimVimFindSingleResult")
   " possible values ('split', 'edit', 'lopen')
-  let g:EclimVimFindSingleResult = "split"
+  let g:EclimVimFindSingleResult = g:EclimDefaultFileOpenAction
 endif
 " }}}
 

@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/search.html
+"   see http://eclim.org/vim/java/search.html
 "
 " License:
 "
@@ -30,7 +30,7 @@
 
   if !exists("g:EclimJavaSearchSingleResult")
     " possible values ('split', 'edit', 'lopen')
-    let g:EclimJavaSearchSingleResult = "split"
+    let g:EclimJavaSearchSingleResult = g:EclimDefaultFileOpenAction
   endif
 " }}}
 
@@ -145,7 +145,14 @@ function! s:Search(command, ...)
     " quote the search pattern
     let search_cmd =
       \ substitute(search_cmd, '\(.*-p\s\+\)\(.\{-}\)\(\s\|$\)\(.*\)', '\1"\2"\3\4', '')
-    let result =  eclim#ExecuteEclim(search_cmd)
+
+    let workspace = eclim#eclipse#ChooseWorkspace()
+    if workspace == '0'
+      return ''
+    endif
+
+    let port = eclim#client#nailgun#GetNgPort(workspace)
+    let result =  eclim#ExecuteEclim(search_cmd, port)
 
     if !in_project && filereadable(expand('%'))
       return result . "\n" . s:SearchAlternate(argline, 0)

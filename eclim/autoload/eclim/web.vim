@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/common/web.html
+"   see http://eclim.org/vim/common/web.html
 "
 " License:
 "
@@ -27,7 +27,7 @@ if !exists("g:EclimOpenUrlInVimPatterns")
   let g:EclimOpenUrlInVimPatterns = []
 endif
 if !exists("g:EclimOpenUrlInVimAction")
-  let g:EclimOpenUrlInVimAction = 'split'
+  let g:EclimOpenUrlInVimAction = g:EclimDefaultFileOpenAction
 endif
 " }}}
 

@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/import.html
+"   see http://eclim.org/vim/java/import.html
 "
 " License:
 "
@@ -164,6 +164,9 @@ function! eclim#java#import#InsertImports(classes)
   endif
 
   call s:InitImportOrder()
+  if !exists('s:import_order')
+    return
+  endif
 
   let line = line('.')
   let col = col('.')
@@ -257,6 +260,11 @@ function! eclim#java#import#SortImports()
     return
   endif
 
+  call s:InitImportOrder()
+  if !exists('s:import_order')
+    return
+  endif
+
   let line = line('.')
   let col = col('.')
 
@@ -266,8 +274,6 @@ function! eclim#java#import#SortImports()
   let line -= prevlen - len(imports)
 
   if len(imports) > 0
-    call s:InitImportOrder()
-
     " sort the imports and put them back in the file
     call sort(imports, function('s:CompareImports'))
 

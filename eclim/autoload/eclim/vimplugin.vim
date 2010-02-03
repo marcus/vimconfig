@@ -23,11 +23,13 @@
 " }}}
 
 " BufferWritten() {{{
-" Invoked when a buffer opened from eclipse is saved, to notifiy eclipse of
-" the save.
+" Invoked when a buffer opened from eclipse is saved, to notify eclipse of the
+" save.
 function eclim#vimplugin#BufferWritten()
   if has('netbeans_enabled')
-    unlet b:eclim_file_modified
+    if exists('b:eclim_file_modified')
+      unlet b:eclim_file_modified
+    endif
     nbkey unmodified
   endif
 endfunction " }}}
@@ -47,6 +49,15 @@ function eclim#vimplugin#BufferUnmodified()
     else
       let b:eclim_file_modified = &modified
     endif
+  endif
+endfunction " }}}
+
+" BufferClosed() {{{
+" Invoked when a buffer is removed from a window to signal that eclipse should
+" close the associated editor tab.
+function eclim#vimplugin#BufferClosed()
+  if has('netbeans_enabled')
+    exec 'nbkey fileClosed ' . expand('<afile>:p')
   endif
 endfunction " }}}
 

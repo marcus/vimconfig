@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/maven/dependency.html
+"   see http://eclim.org/vim/java/maven/dependency.html
 "
 " License:
 "
@@ -107,13 +107,24 @@ function! s:InsertDependency(type, group, artifact, vrsn)
   let dependency = split(depend, '\n')
 
   let lnum = search('</dependencies>', 'cnw')
+  let insertDependenciesNode = 0
   if !lnum
-    call eclim#util#EchoError('No <dependencies> node found.')
-    return
+    let lnum = search('<build>', 'cnw')
+    if !lnum
+      call eclim#util#EchoError('No <dependencies> node found.')
+      return
+    endif
+    let insertDependenciesNode = 1
   endif
 
   let indent = substitute(getline(lnum), '^\(\s*\).*', '\1', '')
   call map(dependency, 'indent . v:val')
+
+  if insertDependenciesNode
+    call append(lnum - 1, indent . '</dependencies>')
+    call append(lnum - 1, indent . '<dependencies>')
+    let lnum += 1
+  endif
 
   call append(lnum - 1, dependency)
 

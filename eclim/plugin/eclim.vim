@@ -27,6 +27,15 @@
 " }}}
 
 " Global Variables {{{
+if !exists("g:EclimHome")
+  " set at build/install time.
+  let g:EclimHome = '/Applications/eclipse/plugins/org.eclim_1.5.4'
+endif
+if !exists("g:EclimEclipseHome")
+  " set at build/install time.
+  let g:EclimEclipseHome = '/Applications/eclipse'
+endif
+
 if !exists("g:EclimLogLevel")
   let g:EclimLogLevel = 4
 endif
@@ -51,25 +60,16 @@ if !exists("g:EclimValidateSortResults")
   let g:EclimValidateSortResults = 'occurrence'
 endif
 
+if !exists("g:EclimDefaultFileOpenAction")
+  let g:EclimDefaultFileOpenAction = 'split'
+endif
+
 if !exists("g:EclimMakeLCD")
   let g:EclimMakeLCD = 1
 endif
 
 if !exists("g:EclimMakeQfFilter")
   let g:EclimMakeQfFilter = 1
-endif
-
-if !exists("g:EclimIndent")
-  if !&expandtab
-    let g:EclimIndent = "\t"
-  else
-    let g:EclimIndent = ""
-    let index = 0
-    while index < &shiftwidth
-      let g:EclimIndent = g:EclimIndent . " "
-      let index = index + 1
-    endwhile
-  endif
 endif
 
 if !exists("g:EclimSeparator")
@@ -119,13 +119,15 @@ endif
 
 " Command Declarations {{{
 if !exists(":PingEclim")
-  command PingEclim :call eclim#PingEclim(1)
+  command -nargs=? -complete=customlist,eclim#eclipse#CommandCompleteWorkspaces
+    \ PingEclim :call eclim#PingEclim(1, '<args>')
 endif
 if !exists(":ShutdownEclim")
   command ShutdownEclim :call eclim#ShutdownEclim()
 endif
 if !exists(":EclimSettings")
-  command -nargs=0 EclimSettings :call eclim#Settings()
+  command -nargs=? -complete=customlist,eclim#eclipse#CommandCompleteWorkspaces
+    \ EclimSettings :call eclim#Settings('<args>')
 endif
 if !exists(":PatchEclim")
   command -nargs=+ -complete=customlist,eclim#CommandCompleteScriptRevision
@@ -197,6 +199,8 @@ if has('netbeans_intg')
     " vim's netbean support is commentted out for some reason.
     autocmd BufWritePost * call eclim#vimplugin#BufferWritten()
     autocmd CursorHold * call eclim#vimplugin#BufferUnmodified()
+    autocmd CursorHold * call eclim#vimplugin#BufferUnmodified()
+    autocmd BufWinLeave * call eclim#vimplugin#BufferClosed()
   augroup END
 endif
 " }}}

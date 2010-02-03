@@ -1,7 +1,7 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   see http://eclim.sourceforge.net/vim/java/junit.html
+"   see http://eclim.org/vim/java/junit.html
 "
 " License:
 "
@@ -141,7 +141,11 @@ endfunction " }}}
 " JUnitImplWindow(command) {{{
 function! eclim#java#junit#JUnitImplWindow(command)
   let name = eclim#java#util#GetFilename() . "_impl"
-  if eclim#util#TempWindowCommand(a:command, name)
+  let project = eclim#project#util#GetCurrentProjectName()
+  let workspace = eclim#project#util#GetProjectWorkspace(project)
+  let port = eclim#client#nailgun#GetNgPort(workspace)
+
+  if eclim#util#TempWindowCommand(a:command, name, port)
     setlocal ft=java
     call eclim#java#impl#ImplWindowFolding()
 

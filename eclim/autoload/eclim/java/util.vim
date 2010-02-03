@@ -29,6 +29,7 @@
 
   let s:update_command = '-command java_src_update -p "<project>" -f "<file>"'
   let s:command_src_exists = '-command java_src_exists -f "<file>"'
+  let s:command_list_installs = '-command java_list_installs'
 
   let s:import_pattern = '^\s*import\_s\+<import>\_s*;'
 " }}}
@@ -327,8 +328,12 @@ function! eclim#java#util#Java(args)
     return
   endif
 
+  let workspace = eclim#project#util#GetProjectWorkspace(project)
+  let port = eclim#client#nailgun#GetNgPort(workspace)
+
   let command = '!'
   let command .= eclim#client#nailgun#GetEclimCommand()
+  let command .= ' -Dnailgun.server.port=' . port
   let command .= ' -command java -p "' . project . '"'
 
   let args = eclim#util#ParseArgs(a:args)
@@ -368,6 +373,19 @@ function! eclim#java#util#Java(args)
       command -buffer -nargs=* Java :call eclim#java#util#Java(<q-args>)
     endif
   endif
+endfunction " }}}
+
+" ListInstalls() {{{
+" Lists all installed jdks/jres.
+function! eclim#java#util#ListInstalls()
+  let installs = split(eclim#ExecuteEclim(s:command_list_installs), '\n')
+  if len(installs) == 0
+    call eclim#util#Echo("No jdk/jre installs found.")
+  endif
+  if len(installs) == 1 && installs[0] == '0'
+    return
+  endif
+  call eclim#util#Echo(join(installs, "\n"))
 endfunction " }}}
 
 " CommandCompleteProject(argLead, cmdLine, cursorPos) {{{
