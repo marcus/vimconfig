@@ -34,7 +34,7 @@ ma               create mark "a", '/` <mark>  go to beginning of marked line/go 
 :marks           list marks
 
 *Searching*
-/                       search, n go to next
+/                       search, n go to next N to go to previous
 f,t                     find a char on the same line
 * and # (backwards)     Search for all occurrences of a word under the cursor
 [I                      list all lines found in current and included files that contain the word under the cursor.
