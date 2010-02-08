@@ -36,7 +36,7 @@ hi DiffDelete	term=bold cterm=bold ctermfg=lightblue ctermbg=cyan gui=bold guifg
 hi DiffText	term=reverse cterm=bold ctermbg=red gui=bold guibg=red3
 hi Cursor	guifg=bg guibg=fg
 hi lCursor	guifg=bg guibg=fg
-hi StatusLine	term=reverse cterm=reverse gui=reverse guifg=gray60
+hi StatusLine	term=reverse cterm=reverse gui=reverse guifg=gray30
 hi StatusLineNC	term=reverse cterm=reverse gui=reverse guifg=gray40
 hi VertSplit	term=reverse cterm=reverse gui=bold,reverse guifg=gray40
 hi Title	term=bold ctermfg=magenta gui=bold guifg=aquamarine
