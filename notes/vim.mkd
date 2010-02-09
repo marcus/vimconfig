@@ -109,7 +109,8 @@ N      last / or ? search in opposite direction
 # ctrl-^                     Open buffer number <#>
 ctrl-^/ ctrl-6 / :b#         Open previous buffer
 ZZ                           Save and close current buffer
-
+*Bufexplorer*
+\be, \bs, \bv                Normal open, horizontal splt, vertical split
 
 *Running system commands*
 :! <command> %(current file)     run a system command optionally with current file as %

@@ -65,6 +65,7 @@
 /MyProjectDir/	dbext.txt	/*\/MyProjectDir\/*
 :Ack	ack.txt	/*:Ack*
 :AckAdd	ack.txt	/*:AckAdd*
+:AckG	ack.txt	/*:AckG*
 :AcpDisable	acp.txt	/*:AcpDisable*
 :AcpEnable	acp.txt	/*:AcpEnable*
 :AcpLock	acp.txt	/*:AcpLock*
