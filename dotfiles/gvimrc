@@ -7,4 +7,5 @@ endif
 :colorscheme darkz
 set lines=65 columns=185
 "set guifont=DroidSansMono:h12
+set guifont=DejaVuSansMono:h13
 set transparency=8
