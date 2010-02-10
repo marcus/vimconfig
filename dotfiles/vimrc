@@ -2,6 +2,9 @@
 " Change swap file directory
 set directory=/tmp
 
+" Use comma instead of \ for leader
+:let mapleader = ","
+
 set grepprg=ack
 set grepformat=%f:%l:%c:%m
 
@@ -61,9 +64,12 @@ nmap <silent> ,ev :e $MYVIMRC<CR>
 " 's'ource 'v'imrc)
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
+" Remove trailing whitespace
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Show trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR
+nmap <silent> <leader>s :set nolist!<CR>
 
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -76,7 +82,7 @@ nmap ,cd :lcd %:h
 " map FuzzyFinderTextMate
 let g:fuzzy_ignore = "*.log,*.png,*.jpg,vendor/**,"
 let g:fuzzy_matching_limit = 70
- 
+
 map <leader>f :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 " map <leader>r :FuzzyFinderTextMateRefreshFiles<CR>
