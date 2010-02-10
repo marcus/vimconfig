@@ -1,4 +1,3 @@
-"set runtimepath=~/.vim,~/.vim/vim-fugitive,~/.vim/vim-rails,$VIMRUNTIME
 " source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
@@ -11,25 +10,60 @@ set hidden
 set ts=2
 set sw=2
 set sts=2
+set ignorecase
+set smartcase
 set autoindent
 set smartindent
 "set expandtab
 "set smarttab
-
-set nowrap
-set wildmenu
-set wildchar=<Tab> wildmenu wildmode=full
-
-set nu
-set vb
-
-:colorscheme candycode
 
 :filetype on
 :filetype plugin on
 :filetype indent on
 
 :syntax on
+" Always show the statusline
+set laststatus=2
+
+set nowrap
+set wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
+
+" Line numbers
+set nu
+
+" Visual bell
+set vb
+
+" Highlight search results
+set hlsearch
+set incsearch " Incrementally
+
+" Less stingy history
+set history=1000
+
+" Title in xterm
+set title
+
+" More context for cursor
+set scrolloff=3
+
+" Faster viewport scrolling
+nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 2<C-y>
+
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %p%%
+
+:colorscheme darkz
+
+" 'e'dit 'v'imrc)
+nmap <silent> ,ev :e $MYVIMRC<CR>
+" 's'ource 'v'imrc)
+nmap <silent> ,sv :so $MYVIMRC<CR>
+
+" Show trailing whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR
 
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -38,11 +72,6 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " cd to the directory containing the file in the buffer
 nmap ,cd :lcd %:h
-
-" Markdown
-augroup mkd
-  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
-augroup END
 
 " For python, modify for Ruby
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -70,7 +99,7 @@ imap <C-a> <Home>
 omap <C-a> <Home>
 imap <C-e> <End>
 omap <C-e> <End>
-" inoremap <C-d> <Del>
+inoremap <C-d> <Del>
 inoremap <silent> <C-k> <C-r>=<SID>KillLine()<CR>
 
 
@@ -140,5 +169,5 @@ noremap <silent> ,mj <C-W>J
 " noremap <silent> <C-F12> :vertical resize +10<CR>
 
 " Highlight all instances of the current word under the cursor
-" nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+nmap <silent>T :setl hls<CR>:let @/="<C-r><C-w>"<CR>
 
