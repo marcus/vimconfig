@@ -179,6 +179,10 @@ S<tag>            in VISUAL mode, surround selected with tag
 ctrl-g             show position in file (line number, position)
 set -o vi"         in bashrc to use vim as the default editor
 
+*Eclim*
+:LocateFile        Like textmatefuzzyfind for Java projects, C-t/C-s open in tab/split
+:Split, :Tabnew    Like defaults but accept multiple files
+
 *Stuff I don't know*
 --
 
