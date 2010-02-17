@@ -183,6 +183,9 @@ set -o vi"         in bashrc to use vim as the default editor
 :LocateFile        Like textmatefuzzyfind for Java projects, C-t/C-s open in tab/split
 :Split, :Tabnew    Like defaults but accept multiple files
 
+*tComment*
+gc                 Gc and variants are all you need to know.
+c-_                +b - block, i inline
 *Stuff I don't know*
 --
 
