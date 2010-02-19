@@ -189,6 +189,8 @@ c-_                +b - block, i inline
 *Stuff I don't know*
 --
 
+*Fuzzy find*
+c-j, k, l          open split, vertical, tab
 
 *Useful links:*
 http://tnerual.eriogerg.free.fr/vimqrc.html - good one.

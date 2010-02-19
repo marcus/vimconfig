@@ -96,8 +96,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 " Project
 :let g:proj_flags="imstvcg"
 
-" F1 to auto-complete, not working
-imap <F1> <i_Ctrl-N>
 " Emacs moving in insert mode
 imap <C-b> <Left>
 omap <C-b> <Left>
@@ -136,8 +134,6 @@ vmap <C-x> ylpr
 
 " Insert a new line with shift-enter in insert mode
 map <S-Enter> o<Esc>
-
-map <C-p> :Project<CR>
 
 set pastetoggle=<F2>
 
