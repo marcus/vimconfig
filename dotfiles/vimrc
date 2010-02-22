@@ -182,4 +182,3 @@ noremap <silent> ,mj <C-W>J
 
 " Highlight all instances of the current word under the cursor
 nmap <silent>T :setl hls<CR>:let @/="<C-r><C-w>"<CR>
-
