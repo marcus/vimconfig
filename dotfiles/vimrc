@@ -69,7 +69,7 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Show trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>s :set nolist!<cr>
 
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -182,3 +182,7 @@ noremap <silent> ,mj <C-W>J
 
 " Highlight all instances of the current word under the cursor
 nmap <silent>T :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+
+"Yankring
+
+nnoremap <silent>  <leader>y :YRShow<CR>
