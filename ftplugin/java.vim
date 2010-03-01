@@ -9,5 +9,6 @@ nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 set tabstop=4
 set shiftwidth=4
-
-set expandtab ts=4 sw=4
+set softtabstop=4
+set expandtab
+set smarttab
