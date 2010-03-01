@@ -1,4 +1,4 @@
-" source ~/.vim/autotag.vim
+source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
 
@@ -88,6 +88,7 @@ map <leader>b :FuzzyFinderBuffer<CR>
 " map <leader>r :FuzzyFinderTextMateRefreshFiles<CR>
 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <leader>t :TlistToggle<CR>
 
 " For python, modify for Ruby
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
