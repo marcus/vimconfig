@@ -57,7 +57,8 @@ nnoremap <C-y> 2<C-y>
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %p%%
 
-:colorscheme darkz
+":colorscheme darkz
+:colorscheme mustang 
 
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -81,7 +82,7 @@ nmap ,cd :lcd %:h
 
 " map FuzzyFinderTextMate
 let g:fuzzy_ignore = "*.log,*.png,*.jpg,vendor/**,"
-let g:fuzzy_matching_limit = 70
+let g:fuzzy_matching_limit = 40
 
 map <leader>f :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>

@@ -4,7 +4,8 @@ if &background == "dark"
     hi normal guibg=black
     set transp=8
 endif
-:colorscheme darkz
+":colorscheme darkz
+:colorscheme mustang
 set lines=65 columns=185
 "set guifont=DroidSansMono:h12
 set guifont=DejaVuSansMono:h13
