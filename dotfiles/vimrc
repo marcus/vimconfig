@@ -1,4 +1,4 @@
-source ~/.vim/autotag.vim
+"source ~/.vim/autotag.vim
 " Change swap file directory
 set directory=/tmp
 
@@ -10,15 +10,18 @@ set grepformat=%f:%l:%c:%m
 
 set nocompatible
 set hidden
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set expandtab
+"set smarttab
+
 set ignorecase
 set smartcase
+
 set autoindent
 set smartindent
-"set expandtab
-"set smarttab
 
 :filetype on
 :filetype plugin on
@@ -57,8 +60,8 @@ nnoremap <C-y> 2<C-y>
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %p%%
 
-":colorscheme darkz
-:colorscheme mustang 
+:colorscheme darkz
+":colorscheme mustang 
 
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -148,6 +151,7 @@ map <C-t><up> :tabnew<cr>
 map <C-t><down> :tabclose<cr>
 map <C-t><left> :tabprevious<cr>
 map <C-t><right> :tabnext<cr>
+map <M-l> :tabnext<cr>
 
 " Windows
 " Move the cursor to the window left of the current one
