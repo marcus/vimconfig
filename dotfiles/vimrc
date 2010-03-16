@@ -89,7 +89,7 @@ let g:fuzzy_matching_limit = 40
 
 map <leader>f :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
-" map <leader>r :FuzzyFinderTextMateRefreshFiles<CR>
+map <leader>z :FuzzyFinderTextMateRefreshFiles<CR>
 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>t :TlistToggle<CR>
