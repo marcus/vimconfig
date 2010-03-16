@@ -22,7 +22,8 @@ if version >= 700
 endif
 
 " General colors
-hi Cursor 		guifg=NONE    guibg=#626262 gui=none ctermbg=241
+"hi Cursor 		guifg=NONE    guibg=#626262 gui=none ctermbg=241
+hi Cursor       guifg=black          guibg=yellow		gui=none
 hi Normal 		guifg=#e2e2e5 guibg=#202020 gui=none ctermfg=253 ctermbg=234
 hi NonText 		guifg=#808080 guibg=#303030 gui=none ctermfg=244 ctermbg=235
 hi LineNr 		guifg=#808080 guibg=#000000 gui=none ctermfg=244 ctermbg=232
@@ -49,6 +50,20 @@ hi Number		guifg=#ff9800 gui=none ctermfg=208
 hi Special		guifg=#ff9800 gui=none ctermfg=208
 hi PreProc 		guifg=#faf4c6 gui=none ctermfg=230
 hi Todo         guifg=#000000 guibg=#e6ea50 gui=italic
+
+" My additions
+hi Ignore       guifg=red            gui=none
+
+hi Directory    ctermfg=darkcyan
+hi ErrorMsg     cterm=bold           ctermfg=7         ctermbg=1
+hi IncSearch    guifg=#b0ffff        guibg=#2050d0
+hi Search       guifg=gray80         guibg=#445599		gui=none
+hi WarningMsg   guifg=salmon         gui=none
+hi WildMenu     guifg=gray           guibg=gray17		gui=none
+hi DiffAdd      guifg=black          guibg=wheat1
+hi DiffChange   guifg=black          guibg=skyblue1
+hi DiffText     guifg=black          guibg=hotpink1		gui=none
+hi DiffDelete   guibg=gray45         guifg=black		gui=none
 
 " Code-specific colors
 hi pythonOperator guifg=#7e8aa2 gui=none ctermfg=103
