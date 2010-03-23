@@ -68,3 +68,4 @@ hi DiffDelete   guibg=gray45         guifg=black		gui=none
 " Code-specific colors
 hi pythonOperator guifg=#7e8aa2 gui=none ctermfg=103
 
+hi javaOperator guifg=#7e8aa2 gui=none ctermfg=103

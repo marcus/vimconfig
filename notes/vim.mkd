@@ -126,6 +126,10 @@ ctrl-c        quit insert mode
 ctrl-o        quit insert mode for the time of one command
 ctrl-o + I, or ctrl-o + 0    quit insert mode, go at beginning of line, and go back to insert modectrl-o + A, or ctrl-o + $    quit insert mode, go at end of line, and go back to insert mode
 
+*Explore mode*
+:Explore
+d             create a directory
+
 *Macros*
 Record: q<some key>, <edit one line and move to the next>, qPlay: @<some key>
 @@ (play last macro)
